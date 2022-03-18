@@ -1,8 +1,6 @@
 BoredGames
 a project for COMP 4020
 
-dependencies:
-node v12 or higher
-expo-cli
-``npm i -g expo-cli``
-
+First, install "Expo Go" from the appstore on your mobile device. 
+To run the app, run ``npm start`` and open the localhost link in the console output.
+Then scan the QR code on the localhost webpage. This will run the app in Expo.
