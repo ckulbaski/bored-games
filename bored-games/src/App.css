@@ -36,6 +36,12 @@
 .content{
     background-color: dimgrey;
     height: 90vh;
+    visibility: hidden;
+}
+.active-content{
+  background-color: dimgrey;
+  height: 90vh;
+  visibility: visible;
 }
 .tab-bar{
     height: 10vh;
