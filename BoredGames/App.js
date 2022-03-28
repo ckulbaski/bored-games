@@ -2,10 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import * as React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import StarRating from './Starz';
+import Review from './Review'
 
-function HomeScreen(){
+
+function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text>Home screen</Text>
@@ -14,16 +17,17 @@ function HomeScreen(){
   );
 }
 
-function SearchScreen(){
+function SearchScreen() {
   return (
     <View style={styles.container}>
-      <Text>Search</Text>
+      <Review></Review>
+      <Text>Hello</Text>
       <StatusBar style="auto" />
     </View>
   );
 }
 
-function ProfileScreen(){
+function ProfileScreen() {
   return (
     <View style={styles.container}>
       <Text>Profile</Text>
@@ -36,13 +40,13 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-      <NavigationContainer>
-        <Tab.Navigator>
-            <Tab.Screen name = "Home" component={HomeScreen} />
-            <Tab.Screen name = "Search" component={SearchScreen} />
-            <Tab.Screen name = "Profile" component={ProfileScreen} />
-        </Tab.Navigator>
-      </NavigationContainer>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Search" component={SearchScreen} />
+        <Tab.Screen name="Profile" component={ProfileScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
