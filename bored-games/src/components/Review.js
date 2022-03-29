@@ -1,49 +1,61 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa"
-import StarRating from "./Starz";
-
-const colors = {
-    orange: "#FFBA5A",
-    grey: "#a9a9a9"
-
-};
-
+import StarRating from "./Stars";
 
 function Review() {
+    const [starValue, setStarValue] = React.useState(1);
+    const [review, setReview] = useState("")
+    const [name, setName] = useState("")
 
+    // updates text in text area and name
+    const updateReview = (name, post) => {
+        setReview(post)
+        setName(name)
+    }
+
+    // update stars
+    function updateStars(value) {
+        setStarValue(value)
+    }
+
+    // function to create review
+    const createReview = () => {
+        console.log(name + "\n")
+        console.log(starValue + "\n")
+        console.log(review + "\n")
+    }
 
     return (
         <form>
             <div>
-                <h2>RATE OUR SERVICE</h2>
+                <h3>Please leave a review!</h3>
 
-                <StarRating></StarRating>
+
                 <div>
+                    <StarRating onChange={updateStars}></StarRating>
                     <input
                         type="text"
-                        placeholder="input your name"
+                        placeholder="Please enter your name"
+                        //
                         required
-                    //style={styles.input}
-                    //value={review.Name}
-                    //onChange={(e) => setReview({ ...review, Name: e.target.value })}
+                        onChange={(e) => updateReview(e.target.value, review)}
                     />
                 </div>
 
                 <textarea
-                    placeholder="what's your feedback"
+                    placeholder="Please enter your review"
                     required
-                //style={styles.textarea}
-                //value={review.review}
-                //onChange={(e) => setReview({ ...review, review: e.target.value })}
+                    onChange={(e) => updateReview(name, e.target.value)}
                 />
-                <button
-                    type="submit"
-                    //style={styles.button}
-                    class="btn btn-primary"
-                //onClick={createReview}
-                >
-                    submit
-                </button>
+                <div>
+                    <button
+                        type="button"
+                        // add style
+                        onClick={() => createReview()}
+                    >
+                        Submit
+                    </button>
+                </div>
             </div>
         </form>
     );
@@ -51,6 +63,7 @@ function Review() {
     //}
 }
 
+// default styling for right now
 /*const styles = {
     container: {
         display: "flex",
