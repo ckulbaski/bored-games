@@ -2,11 +2,10 @@ import * as React from 'react';
 
 function Profile(){
 
-    console.log("We're profile!");
     return(
 
         <div> 
-            <p> Home </p>
+            <p> Profile </p>
         </div>
     );
 }
