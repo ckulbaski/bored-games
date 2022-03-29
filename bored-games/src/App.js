@@ -1,38 +1,44 @@
 import './App.css';
-import { useState } from 'react';
+import {useState} from 'react';
+import * as React from 'react';
 import Review from './components/Review'
-import Search from './components/search'
+import Search from './components/Search'
+import Home from './components/Home'
+import Profile from './components/Profile'
 
 function App() {
 
-  const [activePage, changeActivePage] = useState("home");
+    const [activePage, setActivePage] = useState("home");
 
-  const onClickTab = (tab) => {
-    console.log(tab);
-    changeActivePage(tab);
+    function getActivePage () {
+        if(activePage === "home"){  
+            console.log("home");
+            return <Home />;
+        }
+        if(activePage === "search"){
+            console.log("search");
+            return <Search />;
+        }
+        if(activePage === "profile"){
+            console.log("profile");
+            return <Profile />;
+        }
+        return null;
+    }
 
-  }
 
-
-  return (
-
-    < div className="App" >
+    return (
+    <div className="App" >
       <div className="content">
-
-        <div
-          className={activePage === "search" ? "active-content" : "content1"}
-        >
-          <Search></Search>
-
-        </div>
+          {getActivePage()}
       </div>
       <div className="tab-bar">
-        <div className={activePage === "home" ? "tabs active-tabs" : "tabs"} onClick={() => onClickTab("home")}> Home</div>
-        <div className={activePage === "search" ? "tabs active-tabs" : "tabs"} onClick={() => onClickTab("search")}> Search</div>
-        <div className={activePage === "profile" ? "tabs active-tabs" : "tabs"} onClick={() => onClickTab("profile")}> Profile</div>
+        <div className={activePage === "home" ? "tabs active-tabs" : "tabs"} onClick={()=>setActivePage("home")}> Home</div>
+        <div className={activePage === "search" ? "tabs active-tabs" : "tabs"} onClick={()=>setActivePage("search")}> Search</div>
+        <div className={activePage === "profile" ? "tabs active-tabs" : "tabs"} onClick={()=>setActivePage("profile")}> Profile</div>
       </div>
     </div >
-  );
-}
+    );
 
+}
 export default App;
