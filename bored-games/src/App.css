@@ -36,7 +36,6 @@
 .content{
     background-color: dimgrey;
     height: 90vh;
-    visibility: hidden;
 }
 .active-content{
   background-color: dimgrey;
