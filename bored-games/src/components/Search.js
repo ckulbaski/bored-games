@@ -26,9 +26,6 @@ function Search() {
         }
         setGames(json.games);
         console.log(json.games)
-        for (var key in json.games) {
-            console.log(json.games[key].name);
-        }
     }
 
 
