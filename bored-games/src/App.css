@@ -104,3 +104,59 @@ div ul{
     overflow: auto;
     overflow-y: scroll;
 }
+
+.profile-background{
+  background-color: gainsboro;
+  height:100%;
+  width:40%;
+  margin: auto;
+}
+
+.profile-container{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color:paleturquoise;
+  width: fit-content;
+  margin: auto;
+}
+
+.profile-information{
+  text-align: left;
+  background-color:azure;
+  padding-left: 3%;
+}
+
+.profile-image{
+  background-color: white;
+  border-radius: 50%;
+  
+}
+
+.profile-description{
+  background-color: white;
+  margin-right:3%;
+  margin-bottom:3%;
+  max-height: 300px;
+  max-width: 500px;
+  overflow-y:scroll;
+}
+
+.profile-favourite-games{
+  display:flex;
+  flex-direction:row;
+  background-color: white;
+  justify-content: center;
+  width:fit-content;
+  height: auto;
+  margin-top:20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-favourite-games-image{
+  padding: 10px;
+  width: 150px;
+  height: 150px;
+
+}
