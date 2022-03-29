@@ -77,3 +77,31 @@ div ul{
     overflow: auto;
     overflow-y: scroll;
 }
+
+.profile-container{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: aqua;
+  
+}
+.profile-information{
+  margin-left: 20px;
+  text-align: left;
+  background-color: wheat;
+
+}
+
+.profile-image{
+  background-color: bisque;
+  border-radius: 50%;
+}
+
+.profile-description{
+  background-color: white;
+  margin: 5%;
+  max-height: 300px;
+  max-width: 500px;
+
+  overflow:hidden
+}
