@@ -33,7 +33,7 @@ function Search() {
 
 
     return (
-        <div class='content'>
+        <div className='content'>
             <input 
                 className='search-bar'
                 placeholder="Search"
@@ -45,8 +45,8 @@ function Search() {
             <div className="game-list">
             <ul>
                 {games.map(game=>(
-                    <li>
-                        <Game name={game.name}/>
+                    <li key = {game.id}>
+                        <Game name={game.name} pic={game.image_url} stars={game.average_user_rating}/>
                     </li>
                 ))}
             </ul>

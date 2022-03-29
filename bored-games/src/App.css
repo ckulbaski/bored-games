@@ -55,6 +55,7 @@
     width: 33%;
     border: 3px solid;
     border-color: black;
+    cursor: pointer;
 
 }
 
@@ -68,6 +69,31 @@
     width: 100%;
     justify-content: center;
 }
+
+.game{
+    background-color: white;
+    border: 1px solid;
+    text-align:left;
+    font-size: 1.5em;
+    height:60px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.game p{
+    height: 50%;
+    margin: 0;
+    margin-right: 5px;
+}
+.game img{
+    margin-right: 5px;
+    float: left;
+}
+.star-container{
+    height: 50%;
+    display: "flex";
+}
+
 
 div ul{
     list-style-type: none;
