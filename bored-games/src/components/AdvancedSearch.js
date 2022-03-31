@@ -35,8 +35,6 @@ function AdvancedSearch(props){
         setCategory(cat.categories)
     }, []);
 
-    function getOption(){
-    }
 
     return(
         <div>
