@@ -1,6 +1,11 @@
 import * as React from 'react';
 import Game from './Game';
-let normalsearch = 'https://api.boardgameatlas.com/api/search?name='
+import AdvancedSearch from './AdvancedSearch'
+import { FaPlusSquare } from "react-icons/fa"
+
+
+
+let normalsearch = 'https://api.boardgameatlas.com/api/search?fuzzy_match=true&name='
 let catsearch = 'https://api.boardgameatlas.com/api/game/categories?pretty=true'
 let client = '&client_id=kPogXgKnim'
 
@@ -9,16 +14,52 @@ let cat = [];
 
 function Search() {
 
-    const [search, setSearch] = React.useState("");
+    const [name, setName] = React.useState("");
     const [games, setGames] = React.useState("");
-    const [categories, setCategory] = React.useState("");
-    function onChangeSearch(event) {
-        setSearch(event.target.value);
+    const [category, setCategory] = React.useState("");
+    const [ageRange, setAgeRange] = React.useState("");
+    const [complexity,setComplexity] = React.useState("");
+    const [numPlayers,setNumPlayers] = React.useState("");
+
+    function onChangeName(event) {
+        console.log(event.target.value);
+        setName(event.target.value);
+    }
+    function onChangeCategory(value) {
+        console.log(value);
+        setCategory(value);
+    }
+    function onChangeNumPlayers(value) {
+        console.log(value);
+        setNumPlayers(value);
+    }
+    function onChangeAgeRange(value) {
+        console.log(value);
+        setAgeRange(value);
+    }
+    function onChangeComplexity(value) {
+        console.log(value);
+        setComplexity(value);
+    }
+
+    const toggleAdvancedSearchVisibility = () =>{
+        var advancedSearchDiv=document.getElementById("AdvancedSearch");
+        console.log(advancedSearchDiv.style.display);
+        advancedSearchDiv.style.display = advancedSearchDiv.style.display == "none" ? "block" : "none";
     }
 
     async function fetchSearch() {
-        let response = await fetch('https://api.boardgameatlas.com/api/search?name=' + search + client);
+        let n = name === "" ? "" : "&name="+name;
+        let age = age === undefined ? "" : "&age="+ageRange;
+        let num = num === undefined ? "" : "&max_players="+numPlayers;
+        let query = 'https://api.boardgameatlas.com/api/search?fuzzy_match=true' +n + age + num;
 
+        query += "&fields=name,description,image_url,average_user_rating,categories";
+        query += "&limit=100";
+        query+=client;
+        console.log(query);
+
+        let response = await fetch(query);
         console.log(response.status); // 200
         console.log(response.statusText); // OK
 
@@ -26,31 +67,24 @@ function Search() {
             json = await response.json();
             // handle data
         }
-        setGames(json.games);
-        console.log(json.games)
-        //console.log(json.games)
+        console.log(json.games);
+        var gameList=[];
         for (var key in json.games) {
-            console.log(json.games[key].name);
+            for(var cat in json.games[key].categories){
+                console.log(json.games[key].categories[cat].id);
+                if(json.games[key].categories[cat].id == category){
+                    gameList.push(json.games[key]);
+                    break;
+                }
+            }
         }
+        console.log(gameList);
+        setGames(gameList);
 
     }
 
-
-    React.useEffect(async () => {
-
-        // this list is WAY too long
-        /*let response = await fetch(catsearch + client);
-        if (response.status === 200) {
-            cat = await response.json();
-        }
-        console.log(cat.categories)*/
-
-        //so I condensed it to this for now
-        cat = require('../Assets/Categories.json');
-
-        console.log(cat.categories)
-        setCategory(cat.categories)
-    }, []);
+    
+    /*
     function getOption() {
         let catcat = document.getElementById('Category').value
         console.log(games)
@@ -58,8 +92,6 @@ function Search() {
         console.log(newGames)
         if (games !== "") {
             console.log("catcat = ", catcat)
-
-
 
             //  loop through every game
             for (var key in newGames) {
@@ -89,6 +121,9 @@ function Search() {
         setGames(newGames)
 
     }
+    */
+    
+
 
     return (
         <div className='content'>
@@ -96,17 +131,16 @@ function Search() {
                 className='search-bar'
                 placeholder="Search"
                 id="searchBar"
-                onChange={onChangeSearch}
+                onChange={onChangeName}
             />
             <button type="button" onClick={fetchSearch}> Search </button>
-            <select name="Category" id="Category" onChange={getOption}>
-                <option>Categories</option>
-                {categories !== "" ? categories.map(category => (
-                    <option value={category.id} >{category.name}</option>
-                ))
-
-                    : null}
-            </select>
+            <button type="button" onClick={toggleAdvancedSearchVisibility}>
+                <FaPlusSquare size={10} />
+            </button>
+            <div className="advanced-search"
+                id="AdvancedSearch">
+                <AdvancedSearch setCategory={onChangeCategory} setAgeRange={onChangeAgeRange} setNumPlayers={onChangeNumPlayers} setComplexity={onChangeComplexity}/>
+            </div>
 
             {games !== "" ?
                 <div className="game-list">
