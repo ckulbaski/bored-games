@@ -79,6 +79,10 @@ function Search() {
                 }
             }
         }
+        setAgeRange("");
+        setNumPlayers("");
+        setCategory("");
+        setName("");
         console.log(gameList);
         setGames(gameList);
 
@@ -106,7 +110,7 @@ function Search() {
                     <ul>
                         {games.map(game => (
                             <li key={game.id}>
-                                <Game name={game.name} pic={game.image_url} stars={game.average_user_rating} description={game.description_preview} />
+                                <Game name={game.name} pic={game.image_url} stars={game.average_user_rating} description={game.description} />
                             </li>
                         ))}
                     </ul>
