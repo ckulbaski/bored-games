@@ -26,6 +26,12 @@ function PageReview(props) {
             review = json.reviews[num].Review
             console.log(name)
         }
+        else {
+            name = props.name
+            stars = props.rating
+            starArray = Array(stars).fill(0);
+            review = props.review
+        }
 
     }
     const randomInt = () => {
@@ -38,8 +44,8 @@ function PageReview(props) {
 
     return (
         <div style={styles.container} onLoad={getReview()}>
-            <p>{name}</p>
-            <p><div className="star-container">
+            <div>{name}</div>
+            <div className="">
                 {starArray.map((_, index) => {
                     return (
                         <FaStar
@@ -53,8 +59,8 @@ function PageReview(props) {
                         />
                     )
                 })}
-            </div></p>
-            <p>{review}</p>
+            </div>
+            <div>{review}</div>
 
         </div>
     );

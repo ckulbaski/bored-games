@@ -1,12 +1,18 @@
 import * as React from 'react'
 import { FaStar } from "react-icons/fa"
 import Review from './Review'
+import PageReview from '../components/PageReview'
 function Page(props) {
 
     let name = props.name;
     let pic_url = props.pic;
     let stars = parseInt(props.stars);
     let description = props.description;
+    description = description.replace('<p>', '')
+    description = description.replace('</p>', '')
+    description = description.replace('<p>', '')
+    description = description.replace('</p>', '')
+    console.log(description)
     const starArray = Array(stars).fill(0);
 
 
@@ -52,6 +58,9 @@ function Page(props) {
                     </div>
                     <div>
                         <Review />
+                    </div>
+                    <div>
+                        <PageReview />
                     </div>
 
                 </div>

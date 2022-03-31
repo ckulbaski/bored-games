@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa"
+import PageReview from "./PageReview";
 import StarRating from "./Stars";
 
 function Review() {
@@ -23,6 +24,7 @@ function Review() {
         console.log(name + "\n")
         console.log(starValue + "\n")
         console.log(review + "\n")
+        return (<PageReview />);
     }
 
     return (
