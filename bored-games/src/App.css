@@ -36,6 +36,7 @@
 .content{
     background-color: gainsboro;
     height: 90vh;
+    margin:auto;
 }
 .active-content{
   background-color: gainsboro;
@@ -201,10 +202,11 @@ div ul{
   max-width: 100%;
   overflow-y:scroll;
 }
+
 .advanced-search{
     width:50%;
     border: 2px solid;
     background-color: white;
-    position: absolute;
     display: none;
+    margin: 0 auto;
 }

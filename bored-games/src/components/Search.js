@@ -44,11 +44,11 @@ function Search() {
 
     const toggleAdvancedSearchVisibility = () =>{
         var advancedSearchDiv=document.getElementById("AdvancedSearch");
-        console.log(advancedSearchDiv.style.display);
         advancedSearchDiv.style.display = advancedSearchDiv.style.display == "none" ? "block" : "none";
     }
 
     async function fetchSearch() {
+        toggleAdvancedSearchVisibility();
         let n = name === "" ? "" : "&name="+name;
         let age = age === undefined ? "" : "&age="+ageRange;
         let num = num === undefined ? "" : "&max_players="+numPlayers;
@@ -82,48 +82,6 @@ function Search() {
         setGames(gameList);
 
     }
-
-    
-    /*
-    function getOption() {
-        let catcat = document.getElementById('Category').value
-        console.log(games)
-        let newGames = games
-        console.log(newGames)
-        if (games !== "") {
-            console.log("catcat = ", catcat)
-
-            //  loop through every game
-            for (var key in newGames) {
-                let people = false
-                // similarly every ID in category and check
-                for (var keys in newGames[key].categories) {
-                    console.log(newGames[key].name)
-                    console.log(newGames[key].categories[keys].id)
-                    console.log(catcat)
-                    console.log(catcat === newGames[key].categories[keys].id)
-                    if (newGames[key].categories[keys].id == catcat) {
-                        people = true;
-                    }
-                }
-
-                if (people == false) {
-                    console.log("deleting ", games[key].name)
-                    delete newGames[key]
-                }
-
-            }
-        }
-        for (var key in newGames) {
-            console.log(newGames[key].name);
-        }
-        // does not re-render page for some reason
-        setGames(newGames)
-
-    }
-    */
-    
-
 
     return (
         <div className='content'>
