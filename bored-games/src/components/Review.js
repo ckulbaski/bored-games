@@ -7,6 +7,7 @@ function Review() {
     const [starValue, setStarValue] = React.useState(1);
     const [review, setReview] = useState("")
     const [name, setName] = useState("")
+    const [postit, setPost] = useState(false)
 
     // updates text in text area and name
     const updateReview = (name, post) => {
@@ -24,7 +25,8 @@ function Review() {
         console.log(name + "\n")
         console.log(starValue + "\n")
         console.log(review + "\n")
-        return (<PageReview />);
+
+        setPost(true)
     }
 
     return (
@@ -60,6 +62,8 @@ function Review() {
                     >
                         Submit
                     </button>
+                    {postit !== false ? <PageReview name={name} stars={starValue} review={review} /> : null}
+
                 </div>
             </div>
         </div>
