@@ -12,45 +12,65 @@ function Home() {
             <div>
                 Popular this week!
                 <div style={styles.container}>
-                    <ul style={styles.container} >
-                        <div style={gameStyles1.content}>
-                            <li>
+                    <div style={gameDiv.content}>
+                        <ul style={styles.container} >
+                            <div style={gameStyles1.content}>
+                                <li>
 
-                                <div style={gameTile.content} >
+                                    <div style={gameTile.content} >
 
-                                    <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324722072.jpg" alt="none" width="150" height="100" />
-                                    Catan
-                                    <Stars></Stars>
-                                </div>
-                            </li>
-                            <li>
-                                <div style={gameTile.content} >
-                                    <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1648216857239.png" alt="none" width="150" height="100" />
-                                    Encyclopedia
-                                    <Stars></Stars>
-                                </div>
-                            </li>
-                        </div>
-                        <div style={gameStyles2.content}>
-                            <li>
+                                        <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324722072.jpg" alt="none" width="150" height="100" />
+                                        <div>Catan</div>
+                                        <Stars></Stars>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div style={gameTile.content} >
+                                        <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1648216857239.png" alt="none" width="150" height="100" />
+                                        <div>Encyclopedia</div>
+                                        <Stars></Stars>
+                                    </div>
+                                </li>
+                                <li>
 
-                                <div style={gameTile.content} >
+                                    <div style={gameTile.content} >
 
-                                    <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/userfiles/1647483633011-topbox2.jpg" alt="none" width="150" height="100" />
-                                    Dead Reckoning
-                                    <Stars></Stars>
-                                </div>
-                            </li>
-                            <li>
-                                <div style={gameTile.content} >
-                                    <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1635175402844" alt="none" width="150" height="100" />
-                                    Arch Nova
-                                    <Stars></Stars>
-                                </div>
-                            </li>
-                        </div>
+                                        <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1600224809797" alt="none" width="150" height="100" />
+                                        <div>Cascadia</div>
+                                        <Stars></Stars>
+                                    </div>
+                                </li>
+                            </div>
+                            <div style={gameStyles2.content}>
+                                <li>
 
-                    </ul>
+                                    <div style={gameTile.content} >
+
+                                        <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/userfiles/1647483633011-topbox2.jpg" alt="none" width="150" height="100" />
+                                        <div>Dead Reckoning</div>
+                                        <Stars></Stars>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div style={gameTile.content} >
+                                        <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1635175402844" alt="none" width="150" height="100" />
+                                        <div>Arch Nova</div>
+                                        <Stars></Stars>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div style={gameTile.content} >
+
+                                        <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1588436282654" alt="none" width="150" height="100" />
+                                        <div>Return to Dark Tower</div>
+                                        <Stars></Stars>
+                                    </div>
+                                </li>
+
+                            </div>
+
+                        </ul>
+                    </div>
                 </div>
             </div >
 
@@ -61,11 +81,13 @@ function Home() {
 }
 const styles = {
     container: {
-        border: "solid 2px",
-        marginRight: 100,
-        marginLeft: 100,
+        paddingLeft: "7.25%",
+        //marginRight: 500,
+        //marginLeft: 100,
         height: "80vh",
         overflow: "hidden",
+        width: "85%",
+
     }
 
 }
@@ -86,6 +108,14 @@ const gameStyles2 = {
 const gameTile = {
     content: {
         border: "solid 2px",
+    }
+
+}
+const gameDiv = {
+    content: {
+        margin: "auto",
+        width: "75%",
+
     }
 
 }
