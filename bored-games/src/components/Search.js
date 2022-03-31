@@ -5,12 +5,9 @@ import { FaPlusSquare } from "react-icons/fa"
 
 
 
-let normalsearch = 'https://api.boardgameatlas.com/api/search?fuzzy_match=true&name='
-let catsearch = 'https://api.boardgameatlas.com/api/game/categories?pretty=true'
 let client = '&client_id=kPogXgKnim'
 
 let json;
-let cat = [];
 
 function Search() {
 
@@ -48,7 +45,8 @@ function Search() {
     }
 
     async function fetchSearch() {
-        toggleAdvancedSearchVisibility();
+        var advancedSearchDiv=document.getElementById("AdvancedSearch");
+        advancedSearchDiv.style.display = "none";
         let n = name === "" ? "" : "&name="+name;
         let age = age === undefined ? "" : "&age="+ageRange;
         let num = num === undefined ? "" : "&max_players="+numPlayers;
@@ -68,13 +66,16 @@ function Search() {
             // handle data
         }
         console.log(json.games);
-        var gameList=[];
-        for (var key in json.games) {
-            for(var cat in json.games[key].categories){
-                console.log(json.games[key].categories[cat].id);
-                if(json.games[key].categories[cat].id == category){
-                    gameList.push(json.games[key]);
-                    break;
+        var gameList=json.games;
+        if(category != ""){
+            gameList = [];
+            for (var key in json.games) {
+                for(var cat in json.games[key].categories){
+                    console.log(json.games[key].categories[cat].id);
+                    if(json.games[key].categories[cat].id == category){
+                        gameList.push(json.games[key]);
+                        break;
+                    }
                 }
             }
         }
