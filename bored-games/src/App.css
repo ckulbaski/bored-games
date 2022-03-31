@@ -162,7 +162,8 @@ div ul{
 }
 
 .advanced-search{
-    width:80%;
+    width:50%;
+    border: 2px solid;
     background-color: white;
     position: absolute;
     display: none;
