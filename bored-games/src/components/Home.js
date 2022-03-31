@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { FaCentercode } from 'react-icons/fa';
-import Stars from './Stars'
-
+import { FaStar } from "react-icons/fa"
+let stars = parseInt(5);
+const starArray = Array(stars).fill(0);
 
 function Home() {
 
@@ -21,14 +22,42 @@ function Home() {
 
                                         <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324722072.jpg" alt="none" width="150" height="100" />
                                         <div>Catan</div>
-                                        <Stars></Stars>
+                                        <div className="star-container">
+                                            {starArray.map((_, index) => {
+                                                return (
+                                                    <FaStar
+                                                        key={index}
+                                                        size={14}
+                                                        color="orange"
+                                                        style={{
+                                                            marginRight: 10,
+                                                            cursor: "pointer"
+                                                        }}
+                                                    />
+                                                )
+                                            })}
+                                        </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div style={gameTile.content} >
                                         <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1648216857239.png" alt="none" width="150" height="100" />
                                         <div>Encyclopedia</div>
-                                        <Stars></Stars>
+                                        <div className="star-container">
+                                            {starArray.map((_, index) => {
+                                                return (
+                                                    <FaStar
+                                                        key={index}
+                                                        size={14}
+                                                        color="orange"
+                                                        style={{
+                                                            marginRight: 10,
+                                                            cursor: "pointer"
+                                                        }}
+                                                    />
+                                                )
+                                            })}
+                                        </div>
                                     </div>
                                 </li>
                                 <li>
@@ -37,7 +66,21 @@ function Home() {
 
                                         <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1600224809797" alt="none" width="150" height="100" />
                                         <div>Cascadia</div>
-                                        <Stars></Stars>
+                                        <div className="star-container">
+                                            {starArray.map((_, index) => {
+                                                return (
+                                                    <FaStar
+                                                        key={index}
+                                                        size={14}
+                                                        color="orange"
+                                                        style={{
+                                                            marginRight: 10,
+                                                            cursor: "pointer"
+                                                        }}
+                                                    />
+                                                )
+                                            })}
+                                        </div>
                                     </div>
                                 </li>
                             </div>
@@ -48,14 +91,42 @@ function Home() {
 
                                         <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/userfiles/1647483633011-topbox2.jpg" alt="none" width="150" height="100" />
                                         <div>Dead Reckoning</div>
-                                        <Stars></Stars>
+                                        <div className="star-container">
+                                            {starArray.map((_, index) => {
+                                                return (
+                                                    <FaStar
+                                                        key={index}
+                                                        size={14}
+                                                        color="orange"
+                                                        style={{
+                                                            marginRight: 10,
+                                                            cursor: "pointer"
+                                                        }}
+                                                    />
+                                                )
+                                            })}
+                                        </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div style={gameTile.content} >
                                         <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1635175402844" alt="none" width="150" height="100" />
                                         <div>Arch Nova</div>
-                                        <Stars></Stars>
+                                        <div className="star-container">
+                                            {starArray.map((_, index) => {
+                                                return (
+                                                    <FaStar
+                                                        key={index}
+                                                        size={14}
+                                                        color="orange"
+                                                        style={{
+                                                            marginRight: 10,
+                                                            cursor: "pointer"
+                                                        }}
+                                                    />
+                                                )
+                                            })}
+                                        </div>
                                     </div>
                                 </li>
                                 <li>
@@ -63,7 +134,21 @@ function Home() {
 
                                         <img src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1588436282654" alt="none" width="150" height="100" />
                                         <div>Return to Dark Tower</div>
-                                        <Stars></Stars>
+                                        <div className="star-container">
+                                            {starArray.map((_, index) => {
+                                                return (
+                                                    <FaStar
+                                                        key={index}
+                                                        size={14}
+                                                        color="orange"
+                                                        style={{
+                                                            marginRight: 10,
+                                                            cursor: "pointer"
+                                                        }}
+                                                    />
+                                                )
+                                            })}
+                                        </div>
                                     </div>
                                 </li>
 
