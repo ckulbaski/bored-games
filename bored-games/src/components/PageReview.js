@@ -6,9 +6,9 @@ function PageReview(props) {
     let name = ""
     let stars = parseInt(5);
     let review = ""
-    const starArray = Array(stars).fill(0);
+    let starArray = Array(stars).fill(0);
 
-    React.useEffect(async () => {
+    function getReview() {
 
         // this list is WAY too long
         /*let response = await fetch(catsearch + client);
@@ -18,22 +18,27 @@ function PageReview(props) {
         console.log(cat.categories)*/
 
         //so I condensed it to this for now
-        var num = randomInt();
-        name = json[num].Username
-        stars = parseInt(json[num].Rating)
-        review = json[num].Review
-        console.log(name, stars, review)
+        if (Object.entries(props).length === 0) {
+            var num = randomInt();
+            name = json.reviews[num].Username
+            stars = parseInt(json.reviews[num].Rating)
+            starArray = Array(stars).fill(0);
+            review = json.reviews[num].Review
+            console.log(name)
+        }
 
-    }, []);
+    }
     const randomInt = () => {
 
-        let num = Math.random() * (23 - 0) + 0;
-        return num;
+        let num = Math.random() * (13 - 0) + 0;
+        console.log(parseInt(num))
+        return parseInt(num);
     }
 
+
     return (
-        <div style={styles.container}>
-            <p>Nerd E. Gamer</p>
+        <div style={styles.container} onLoad={getReview()}>
+            <p>{name}</p>
             <p><div className="star-container">
                 {starArray.map((_, index) => {
                     return (
@@ -49,7 +54,7 @@ function PageReview(props) {
                     )
                 })}
             </div></p>
-            <p>Review:</p>
+            <p>{review}</p>
 
         </div>
     );
