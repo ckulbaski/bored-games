@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { FaStar } from "react-icons/fa"
 import Review from './Review'
+import PageReview from '../components/PageReview'
 function Page(props) {
 
     let name = props.name;
@@ -57,6 +58,9 @@ function Page(props) {
                     </div>
                     <div>
                         <Review />
+                    </div>
+                    <div>
+                        <PageReview />
                     </div>
 
                 </div>
