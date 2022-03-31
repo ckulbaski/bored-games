@@ -167,8 +167,6 @@ function Home() {
 const styles = {
     container: {
         paddingLeft: "7.25%",
-        //marginRight: 500,
-        //marginLeft: 100,
         height: "80vh",
         overflow: "hidden",
         width: "85%",

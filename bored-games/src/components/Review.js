@@ -32,29 +32,34 @@ function Review() {
 
 
                 <div>
-                    <StarRating onChange={updateStars}></StarRating>
-                    <input
-                        type="text"
-                        placeholder="Please enter your name"
-                        //
-                        required
-                        onChange={(e) => updateReview(e.target.value, review)}
-                    />
-                </div>
+                    <div style={styles.container}>
+                        <StarRating onChange={updateStars}></StarRating>
+                    </div>
+                    <div>
+                        <input
+                            type="text"
+                            value="Nerd E. Gamer"
+                            onChange={(e) => updateReview(e.target.value, review)}
+                        />
 
-                <textarea
-                    placeholder="Please enter your review"
-                    required
-                    onChange={(e) => updateReview(name, e.target.value)}
-                />
-                <div>
-                    <button
-                        type="button"
-                        // add style
-                        onClick={() => createReview()}
-                    >
-                        Submit
-                    </button>
+                    </div>
+                    <div>
+                        <textarea
+                            placeholder="Please enter your review"
+                            required
+                            onChange={(e) => updateReview(name, e.target.value)}
+                            width="1%"
+                        />
+                    </div>
+                    <div>
+                        <button
+                            type="button"
+                            // add style
+                            onClick={() => createReview()}
+                        >
+                            Submit
+                        </button>
+                    </div>
                 </div>
             </div>
         </form>
@@ -64,13 +69,11 @@ function Review() {
 }
 
 // default styling for right now
-/*const styles = {
+const styles = {
     container: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
+        paddingRight: "85%"
     }
 
-}*/
+}
 
 export default Review;
