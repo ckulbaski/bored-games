@@ -11,7 +11,7 @@ function Page(props) {
 
 
     function goBack() {
-        return null;
+        window.location.reload(false);
     }
     return (
 
