@@ -7,11 +7,11 @@ function Game(props){
     let pic_url =props.pic;
     let stars = parseInt(props.stars);
     const starArray = Array(stars).fill(0);
-    const [p, setPage] = React.useState("");
+    const [aPage, setPage] = React.useState("");
 
     function goPage(){
-        if(p !== ""){
-            return Page(p);
+        if(aPage !== ""){
+            return Page(aPage);
         }
         return null;
     }
