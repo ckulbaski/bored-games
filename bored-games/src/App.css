@@ -160,3 +160,10 @@ div ul{
   height: 150px;
 
 }
+
+.advanced-search{
+    width:80%;
+    background-color: white;
+    position: absolute;
+    display: none;
+}
