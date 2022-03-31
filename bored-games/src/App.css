@@ -160,3 +160,44 @@ div ul{
   height: 150px;
 
 }
+
+.page-background{
+  background-color: gainsboro;
+  position:fixed;
+  padding:0;
+  margin:0;
+
+  bottom:0;
+  left:0;
+
+  width: 100%;
+  height: 100%;
+}
+
+.page-container{
+  background-color:paleturquoise;
+  position:fixed;
+  padding:0;
+  margin:0;
+
+  top:5;
+  left:0;
+
+  width: 100%;
+  height: 100%;
+}
+
+.page-information{
+  background-color:azure;
+  text-align: left;
+  padding-left: 3%;
+}
+
+.page-description{
+  background-color: white;
+  margin-right:3%;
+  margin-bottom:3%;
+  max-height: 300px;
+  max-width: 500px;
+  overflow-y:visible;
+}

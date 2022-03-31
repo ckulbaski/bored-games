@@ -1,25 +1,34 @@
 import * as React from 'react'
 import { FaStar } from "react-icons/fa"
-import Page from './Page';
-function Game(props){
+
+function Page(props){
 
     let name = props.name;
-    let pic_url =props.pic;
+    let pic_url = props.pic;
     let stars = parseInt(props.stars);
     const starArray = Array(stars).fill(0);
-    const [p, setPage] = React.useState("");
 
-    function goPage(){
-        if(p !== ""){
-            return Page(p);
-        }
+    function goBack(){
         return null;
     }
 
-    return(
-        <div className = "game" onClick={() => setPage(props)}>
-            <img src={pic_url} alt="none" width='50' height = '50' />
-            <p> {name} </p>
+return(
+
+    <div class="page-background">
+    <div class="page-container">
+    <button type="button" onClick={goBack}> BACK </button>
+        <div>
+            <img class="profile-image"
+                src={pic_url}
+                alt="none"
+                width="200"
+                height="200"
+
+            />
+        </div>
+        <div class="page-information">
+            <h2>{name}</h2>
+            <h4>
             <div className="star-container">
                 {starArray.map((_, index) => {
                     return (
@@ -34,13 +43,21 @@ function Game(props){
                         />
                     )
                 })}
-                <div>
-                {goPage()}
-                </div>
             </div>
-        </div>
-    );
+            </h4>
+            <h5>Description:</h5>
+            <div class="page-description">
+                <p>good game go buy it now!</p>
+                </div>
+            <h3>Review</h3>
+            </div>
 
+
+
+    </div>
+
+</div>
+);
 }
 
-export default Game;
+export default Page;
