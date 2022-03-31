@@ -20,9 +20,9 @@ function PageReview(props) {
         //so I condensed it to this for now
         var num = randomInt();
         name = json[num].Username
-        star = parseInt(json[num].Rating)
+        stars = parseInt(json[num].Rating)
         review = json[num].Review
-        console.log(name, rating, review)
+        console.log(name, stars, review)
 
     }, []);
     const randomInt = () => {

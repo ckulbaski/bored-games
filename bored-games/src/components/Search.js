@@ -113,7 +113,7 @@ function Search() {
                     <ul>
                         {games.map(game => (
                             <li key={game.id}>
-                                <Game name={game.name} pic={game.image_url} stars={game.average_user_rating} description={game.description} />
+                                <Game name={game.name} pic={game.image_url} stars={game.average_user_rating} description={game.description_preview} />
                             </li>
                         ))}
                     </ul>
