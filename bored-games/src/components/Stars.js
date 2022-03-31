@@ -8,15 +8,16 @@ const colors = {
 };
 
 
-function StarRating() {
+function StarRating(updateStars) {
 
     const starArray = Array(5).fill(0);
-    const [currentValue, setCurrentValue] = useState(0);
+    const [currentValue, setCurrentValue] = useState(1);
     const [hoverValue, setHoverValue] = useState(undefined);
 
     const handleClick = value => {
         setCurrentValue(value)
-        console.log("User rated this %d stars\n", value)
+        updateStars.onChange(value);
+        //console.log("User rated this %d stars\n", value)
     }
 
     const handleMouseOver = newHoverValue => {
@@ -26,10 +27,10 @@ function StarRating() {
     const handleMouseLeave = () => {
         setHoverValue(undefined)
     }
+
     //render() {
     return (
         <div style={styles.container}>
-            <h2>Rating</h2>
             <div style={styles.stars}>
                 {starArray.map((_, index) => {
                     return (
@@ -37,6 +38,7 @@ function StarRating() {
                             key={index}
                             size={24}
                             onClick={() => handleClick(index + 1)}
+
                             onMouseOver={() => handleMouseOver(index + 1)}
                             onMouseLeave={handleMouseLeave}
                             color={(hoverValue || currentValue) > index ? colors.orange : colors.grey} //toggle

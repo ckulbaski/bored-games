@@ -10,7 +10,7 @@ function Search() {
     const [search, setSearch] = React.useState("");
     const [games, setGames] = React.useState("");
 
-    function onChangeSearch(event){
+    function onChangeSearch(event) {
         setSearch(event.target.value);
     }
 
@@ -31,7 +31,7 @@ function Search() {
 
     return (
         <div className='content'>
-            <input 
+            <input
                 className='search-bar'
                 placeholder="Search"
                 id="searchBar"
@@ -39,16 +39,16 @@ function Search() {
             />
             <button type="button" onClick={fetchText}> Search </button>
             {games !== "" ?
-            <div className="game-list">
-            <ul>
-                {games.map(game=>(
-                    <li key = {game.id}>
-                        <Game name={game.name} pic={game.image_url} stars={game.average_user_rating}/>
-                    </li>
-                ))}
-            </ul>
-            </div>
-            : null }
+                <div className="game-list">
+                    <ul>
+                        {games.map(game => (
+                            <li key={game.id}>
+                                <Game name={game.name} pic={game.image_url} stars={game.average_user_rating} />
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                : null}
         </div>
     );
 
