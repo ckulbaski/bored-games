@@ -31,7 +31,6 @@ function StarRating(updateStars) {
     //render() {
     return (
         <div style={styles.container}>
-            <h2>Rating</h2>
             <div style={styles.stars}>
                 {starArray.map((_, index) => {
                     return (
