@@ -56,19 +56,23 @@ function Page(props) {
                     <div class="page-description">
                         {description}
                     </div>
+                    <Review />
                     <div>
-                        <Review />
+                        <div>
+
+
+                            <div>
+                                <PageReview />
+                            </div>
+                        </div>
+
                     </div>
-                    <div>
-                        <PageReview />
-                    </div>
+
+
 
                 </div>
 
-
-
             </div>
-
         </div>
     );
 }

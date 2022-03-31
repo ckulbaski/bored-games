@@ -31,6 +31,7 @@ function PageReview(props) {
             stars = props.rating
             starArray = Array(stars).fill(0);
             review = props.review
+
         }
 
     }
@@ -69,8 +70,9 @@ function PageReview(props) {
 const styles = {
     container: {
 
-        height: "80vh",
+        height: "30vh",
         width: "100%",
+        border: "solid 1px",
 
 
     }
