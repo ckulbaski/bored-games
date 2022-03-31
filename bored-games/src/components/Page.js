@@ -7,6 +7,11 @@ function Page(props) {
     let pic_url = props.pic;
     let stars = parseInt(props.stars);
     let description = props.description;
+    description = description.replace('<p>', '')
+    description = description.replace('</p>', '')
+    description = description.replace('<p>', '')
+    description = description.replace('</p>', '')
+    console.log(description)
     const starArray = Array(stars).fill(0);
 
 
@@ -17,7 +22,7 @@ function Page(props) {
 
         <div class="page-background">
             <div class="page-container">
-                <button type="button"  onClick={() => goBack()}> BACK </button>
+                <button type="button" onClick={() => goBack()}> BACK </button>
                 <div>
                     <img class="profile-image"
                         src={pic_url}
@@ -48,7 +53,7 @@ function Page(props) {
                     </h4>
                     <h5>Description:</h5>
                     <div class="page-description">
-                        <p>{description}</p>
+                        {description}
                     </div>
                     <div>
                         <Review />

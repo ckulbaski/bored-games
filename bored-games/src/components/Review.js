@@ -26,43 +26,42 @@ function Review() {
     }
 
     return (
-        <form>
+        <div>
+            <h3>Please leave a review!</h3>
+
+
             <div>
-                <h3>Please leave a review!</h3>
-
-
+                <div style={styles.container}>
+                    <StarRating onChange={updateStars}></StarRating>
+                </div>
                 <div>
-                    <div style={styles.container}>
-                        <StarRating onChange={updateStars}></StarRating>
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            value="Nerd E. Gamer"
-                            onChange={(e) => updateReview(e.target.value, review)}
-                        />
+                    <input
+                        type="text"
+                        value="Nerd E. Gamer"
+                        onChange={(e) => updateReview(e.target.value, review)}
+                    />
 
-                    </div>
-                    <div>
-                        <textarea
-                            placeholder="Please enter your review"
-                            required
-                            onChange={(e) => updateReview(name, e.target.value)}
-                            width="1%"
-                        />
-                    </div>
-                    <div>
-                        <button
-                            type="button"
-                            // add style
-                            onClick={() => createReview()}
-                        >
-                            Submit
-                        </button>
-                    </div>
+                </div>
+                <div>
+                    <textarea
+                        placeholder="Please enter your review"
+                        required
+                        onChange={(e) => updateReview(name, e.target.value)}
+
+                    />
+                </div>
+                <div>
+                    <button
+                        type="button"
+                        // add style
+                        onClick={() => createReview()}
+                    >
+                        Submit
+                    </button>
                 </div>
             </div>
-        </form>
+        </div>
+
     );
 
     //}
