@@ -49,7 +49,7 @@ function AdvancedSearch(props){
         </div>
         <div>
         <input
-            placeholder="Age range"
+            placeholder="Minimum age"
             onChange={onChangeAge}
         />
         </div>
@@ -61,7 +61,7 @@ function AdvancedSearch(props){
         </div>
         <div>
         <input
-            placeholder="Complexity"
+            placeholder="Difficulty (1-5)"
             onChange={onChangeComplex}
         />
         </div>
