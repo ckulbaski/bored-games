@@ -61,7 +61,7 @@ function AdvancedSearch(props){
         </div>
         <div>
         <input
-            placeholder="Complexity"
+            placeholder="Difficulty (1-5)"
             onChange={onChangeComplex}
         />
         </div>
