@@ -48,8 +48,9 @@ function Search() {
         var advancedSearchDiv=document.getElementById("AdvancedSearch");
         advancedSearchDiv.style.display = "none";
         let n = name === "" ? "" : "&name="+name;
-        let age = age === undefined ? "" : "&age="+ageRange;
-        let num = num === undefined ? "" : "&max_players="+numPlayers;
+        let age = age === "" ? "" : "&min_age="+ageRange;
+        let num = num === "" ? "" : "&max_players="+numPlayers;
+
         let query = 'https://api.boardgameatlas.com/api/search?fuzzy_match=true' +n + age + num;
 
         query += "&fields=name,description,image_url,average_user_rating,categories";
