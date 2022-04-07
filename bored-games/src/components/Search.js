@@ -15,8 +15,8 @@ function Search() {
     const [games, setGames] = React.useState("");
     const [category, setCategory] = React.useState("");
     const [ageRange, setAgeRange] = React.useState("");
-    const [complexity,setComplexity] = React.useState("");
-    const [numPlayers,setNumPlayers] = React.useState("");
+    const [complexity, setComplexity] = React.useState("");
+    const [numPlayers, setNumPlayers] = React.useState("");
 
     function onChangeName(event) {
         console.log(event.target.value);
@@ -39,23 +39,23 @@ function Search() {
         setComplexity(value);
     }
 
-    const toggleAdvancedSearchVisibility = () =>{
-        var advancedSearchDiv=document.getElementById("AdvancedSearch");
+    const toggleAdvancedSearchVisibility = () => {
+        var advancedSearchDiv = document.getElementById("AdvancedSearch");
         advancedSearchDiv.style.display = advancedSearchDiv.style.display == "none" ? "block" : "none";
     }
 
     async function fetchSearch() {
-        var advancedSearchDiv=document.getElementById("AdvancedSearch");
+        var advancedSearchDiv = document.getElementById("AdvancedSearch");
         advancedSearchDiv.style.display = "none";
-        let n = name === "" ? "" : "&name="+name;
-        let age = age === "" ? "" : "&min_age="+ageRange;
-        let num = num === "" ? "" : "&max_players="+numPlayers;
+        let n = name === "" ? "" : "&name=" + name;
+        let age = age === "" ? "" : "&min_age=" + ageRange;
+        let num = num === "" ? "" : "&max_players=" + numPlayers;
 
-        let query = 'https://api.boardgameatlas.com/api/search?fuzzy_match=true' +n + age + num;
+        let query = 'https://api.boardgameatlas.com/api/search?fuzzy_match=true' + n + age + num;
 
-        query += "&fields=name,description,image_url,average_user_rating,categories";
+        query += "&fields=name,description,image_url,average_user_rating,categories,description_preview";
         query += "&limit=100";
-        query+=client;
+        query += client;
         console.log(query);
 
         let response = await fetch(query);
@@ -67,13 +67,13 @@ function Search() {
             // handle data
         }
         console.log(json.games);
-        var gameList=json.games;
-        if(category != ""){
+        var gameList = json.games;
+        if (category != "") {
             gameList = [];
             for (var key in json.games) {
-                for(var cat in json.games[key].categories){
+                for (var cat in json.games[key].categories) {
                     console.log(json.games[key].categories[cat].id);
-                    if(json.games[key].categories[cat].id == category){
+                    if (json.games[key].categories[cat].id == category) {
                         gameList.push(json.games[key]);
                         break;
                     }
@@ -103,7 +103,7 @@ function Search() {
             </button>
             <div className="advanced-search"
                 id="AdvancedSearch">
-                <AdvancedSearch setCategory={onChangeCategory} setAgeRange={onChangeAgeRange} setNumPlayers={onChangeNumPlayers} setComplexity={onChangeComplexity}/>
+                <AdvancedSearch setCategory={onChangeCategory} setAgeRange={onChangeAgeRange} setNumPlayers={onChangeNumPlayers} setComplexity={onChangeComplexity} />
             </div>
 
             {games !== "" ?
@@ -111,7 +111,7 @@ function Search() {
                     <ul>
                         {games.map(game => (
                             <li key={game.id}>
-                                <Game name={game.name} pic={game.image_url} stars={game.average_user_rating} description={game.description} />
+                                <Game name={game.name} pic={game.image_url} stars={game.average_user_rating} description={game.description_preview} />
                             </li>
                         ))}
                     </ul>
