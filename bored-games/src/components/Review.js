@@ -25,7 +25,7 @@ function Review() {
         console.log(name + "\n")
         console.log(starValue + "\n")
         console.log(review + "\n")
-
+        setName("Nerd E. Gamer")
         setPost(true)
     }
 
@@ -39,11 +39,10 @@ function Review() {
                     <StarRating onChange={updateStars}></StarRating>
                 </div>
                 <div>
-                    <input
-                        type="text"
-                        value="Nerd E. Gamer"
-                        onChange={(e) => updateReview(e.target.value, review)}
-                    />
+                    <div>
+                        Nerd E. Gamer
+
+                    </div>
 
                 </div>
                 <div>
