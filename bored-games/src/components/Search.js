@@ -2,10 +2,15 @@ import * as React from 'react';
 import Game from './Game';
 import AdvancedSearch from './AdvancedSearch'
 import { FaPlusSquare } from "react-icons/fa"
+import LoadingSpinner from "./LoadingSpinner"
+import GameList from "./GameList"
 
 
 
 let client = '&client_id=kPogXgKnim'
+
+// alt id
+//let client ='&client_id=QnMGMpLsyy' 
 
 let json;
 
@@ -17,6 +22,8 @@ function Search() {
     const [ageRange, setAgeRange] = React.useState("");
     const [complexity,setComplexity] = React.useState("");
     const [numPlayers,setNumPlayers] = React.useState("");
+    const [isLoading, setLoading] = React.useState(false);
+    const [hasGames, setHasGames] = React.useState(false);
 
     function onChangeName(event) {
         console.log(event.target.value);
@@ -41,24 +48,26 @@ function Search() {
 
     const toggleAdvancedSearchVisibility = () =>{
         var advancedSearchDiv=document.getElementById("AdvancedSearch");
-        advancedSearchDiv.style.display = advancedSearchDiv.style.display == "none" ? "block" : "none";
+        advancedSearchDiv.style.display = advancedSearchDiv.style.display === "none" ? "block" : "none";
     }
 
     async function fetchSearch() {
+        setLoading(true);
         var advancedSearchDiv=document.getElementById("AdvancedSearch");
         advancedSearchDiv.style.display = "none";
         let n = name === "" ? "" : "&name="+name;
-        let age = age === "" ? "" : "&min_age="+ageRange;
-        let num = num === "" ? "" : "&max_players="+numPlayers;
+        let age = ageRange === "" ? "" : "&min_age="+ageRange;
+        let nu = numPlayers === "" ? "" : "&max_players="+numPlayers;
 
-        let query = 'https://api.boardgameatlas.com/api/search?fuzzy_match=true' +n + age + num;
+        let query = 'https://api.boardgameatlas.com/api/search?fuzzy_match=true' +n + age + nu;
 
         query += "&fields=name,description,image_url,average_user_rating,categories";
         query += "&limit=100";
         query+=client;
         console.log(query);
 
-        let response = await fetch(query);
+        let response = await fetch(query)
+            .then(setHasGames(true));
         console.log(response.status); // 200
         console.log(response.statusText); // OK
 
@@ -68,12 +77,12 @@ function Search() {
         }
         console.log(json.games);
         var gameList=json.games;
-        if(category != ""){
+        if(category !== ""){
             gameList = [];
             for (var key in json.games) {
                 for(var cat in json.games[key].categories){
                     console.log(json.games[key].categories[cat].id);
-                    if(json.games[key].categories[cat].id == category){
+                    if(json.games[key].categories[cat].id === category){
                         gameList.push(json.games[key]);
                         break;
                     }
@@ -86,6 +95,7 @@ function Search() {
         setName("");
         console.log(gameList);
         setGames(gameList);
+        setLoading(false);
 
     }
 
@@ -97,7 +107,7 @@ function Search() {
                 id="searchBar"
                 onChange={onChangeName}
             />
-            <button type="button" onClick={fetchSearch}> Search </button>
+            <button type="button" onClick={fetchSearch} disabled={isLoading}> Search </button>
             <button type="button" onClick={toggleAdvancedSearchVisibility}>
                 <FaPlusSquare size={10} />
             </button>
@@ -106,17 +116,10 @@ function Search() {
                 <AdvancedSearch setCategory={onChangeCategory} setAgeRange={onChangeAgeRange} setNumPlayers={onChangeNumPlayers} setComplexity={onChangeComplexity}/>
             </div>
 
-            {games !== "" ?
-                <div className="game-list">
-                    <ul>
-                        {games.map(game => (
-                            <li key={game.id}>
-                                <Game name={game.name} pic={game.image_url} stars={game.average_user_rating} description={game.description} />
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                : null}
+            {isLoading ?  
+                <LoadingSpinner />
+                : <GameList hasGames={hasGames} games={games}/>
+            }
         </div>
     );
 
