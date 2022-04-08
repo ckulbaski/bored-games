@@ -61,9 +61,9 @@ function Search() {
 
         let query = 'https://api.boardgameatlas.com/api/search?fuzzy_match=true' +n + age + nu;
 
-        query += "&fields=name,description,image_url,average_user_rating,categories";
+        query += "&fields=name,description,image_url,average_user_rating,categories,description_preview";
         query += "&limit=100";
-        query+=client;
+        query += client;
         console.log(query);
 
         let response = await fetch(query)
@@ -80,7 +80,7 @@ function Search() {
         if(category !== ""){
             gameList = [];
             for (var key in json.games) {
-                for(var cat in json.games[key].categories){
+                for (var cat in json.games[key].categories) {
                     console.log(json.games[key].categories[cat].id);
                     if(json.games[key].categories[cat].id === category){
                         gameList.push(json.games[key]);
@@ -113,7 +113,7 @@ function Search() {
             </button>
             <div className="advanced-search"
                 id="AdvancedSearch">
-                <AdvancedSearch setCategory={onChangeCategory} setAgeRange={onChangeAgeRange} setNumPlayers={onChangeNumPlayers} setComplexity={onChangeComplexity}/>
+                <AdvancedSearch setCategory={onChangeCategory} setAgeRange={onChangeAgeRange} setNumPlayers={onChangeNumPlayers} setComplexity={onChangeComplexity} />
             </div>
 
             {isLoading ?  

@@ -8,10 +8,10 @@ function Page(props) {
     let pic_url = props.pic;
     let stars = parseInt(props.stars);
     let description = props.description;
-    description = description.replace('<p>', '')
+    /*description = description.replace('<p>', '')
     description = description.replace('</p>', '')
     description = description.replace('<p>', '')
-    description = description.replace('</p>', '')
+    description = description.replace('</p>', '')*/
     console.log(description)
     const starArray = Array(stars).fill(0);
 

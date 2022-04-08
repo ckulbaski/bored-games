@@ -29,7 +29,7 @@ function PageReview(props) {
         else {
             name = props.name
             stars = props.rating
-            starArray = Array(stars).fill(0);
+            starArray = Array(props.stars).fill(0);
             review = props.review
 
         }

@@ -9,11 +9,11 @@ function Home() {
 
     const [games, setGames] = React.useState("");
 
-    async function fetchGames(){
+    async function fetchGames() {
         let query = 'https://api.boardgameatlas.com/api/search?lt_reddit_week_count=50';
-        query += "&fields=name,description,image_url,average_user_rating,categories";
+        query += "&fields=name,description,image_url,average_user_rating,categories,description_preview";
         query += "&limit=10";
-        query+=client;
+        query += client;
         console.log(query);
 
         let response = await fetch(query);
@@ -28,7 +28,7 @@ function Home() {
         setGames(json.games);
     }
 
-    React.useEffect(async () =>{
+    React.useEffect(async () => {
         fetchGames();
     }, []);
 
@@ -41,7 +41,7 @@ function Home() {
                     <ul>
                         {games.map(game => (
                             <li key={game.id}>
-                                <Game name={game.name} pic={game.image_url} stars={game.average_user_rating} description={game.description} />
+                                <Game name={game.name} pic={game.image_url} stars={game.average_user_rating} description={game.description_preview} />
                             </li>
                         ))}
                     </ul>
