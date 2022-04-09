@@ -123,6 +123,13 @@ function Search() {
                 onChange={onChangeName}
                 onKeyDown={handleKeyDown}
             />
+            <button
+                className="search-button"
+                type="button" 
+                onClick={fetchSearch} 
+                disabled={isLoading}> 
+                <FaSearch size={20}/>
+            </button>
             <button type="button" onClick={toggleAdvancedSearchVisibility}
                     className="adv-button">
                 <FaPlusSquare size={15} />

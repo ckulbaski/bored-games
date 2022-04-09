@@ -198,7 +198,11 @@ div ul{
 .search-bar{
     margin-top: 5px;
     height: 5vh;
-    width: 90vw;
+    width: 80vw;
+}
+.search-button{
+    height: 5vh;
+    width: 5vw;
 }
 
 .adv-button{
