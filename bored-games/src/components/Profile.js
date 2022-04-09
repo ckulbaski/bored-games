@@ -4,7 +4,7 @@ import * as React from 'react';
 function Profile() {
 
     return (
-        <>
+        <div className="content">
             <div className="profile-background">
                 <h1>PROFILE</h1>
                 <div className="profile-container">
@@ -13,6 +13,7 @@ function Profile() {
                             src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_3000/https://envri.eu/wp-content/uploads/2016/08/software-developer-copy.jpg"
                             width="200"
                             height="200"
+                            alt="not available"
 
                         />
                         <p>Location: Winnipeg</p>
@@ -32,20 +33,24 @@ function Profile() {
 
                     <img className="profile-favourite-games-image"
                         src="https://cf.geekdo-images.com/9nGoBZ0MRbi6rdH47sj2Qg__itemrep/img/8EP4ErNA709diOt6fUyJH30FtbU=/fit-in/246x300/filters:strip_icc()/pic5786795.jpg"
+                        alt="not available"
                     />
                     <img className="profile-favourite-games-image"
                         src="https://www.boardgamequest.com/wp-content/uploads/2013/04/Settlers-of-Catan-300x243.jpg"
+                        alt="not available"
                     />
                     <img className="profile-favourite-games-image"
                         src="https://www.mobygames.com/images/covers/l/489966-uno-kindle-classNameic-front-cover.jpg"
+                        alt="not available"
                     />
                     <img className="profile-favourite-games-image"
                         src="https://849310.smushcdn.com/1803394/wp-content/uploads/2017/12/gloomhaven-overview-header-1024x576.jpg?lossy=1&strip=1&webp=1"
+                        alt="not available"
                     />
                 </div>
 
             </div>
-        </>
+        </div>
     );
 }
 

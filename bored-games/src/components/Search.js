@@ -1,7 +1,6 @@
 import * as React from 'react';
-import Game from './Game';
 import AdvancedSearch from './AdvancedSearch'
-import { FaPlusSquare } from "react-icons/fa"
+import { FaPlusSquare, FaSearch } from "react-icons/fa"
 import LoadingSpinner from "./LoadingSpinner"
 import GameList from "./GameList"
 
@@ -44,6 +43,12 @@ function Search() {
     function onChangeComplexity(value) {
         console.log(value);
         setComplexity(value);
+    }
+
+    const handleKeyDown = (e) =>{
+        if(e.key === 'Enter'){
+            fetchSearch();
+        }
     }
 
     const toggleAdvancedSearchVisibility = () =>{
@@ -98,6 +103,16 @@ function Search() {
         setLoading(false);
 
     }
+    /* this is the search button, if you need to put it back put it as the
+     * first child of 'content' div
+            <button
+                className="search-button"
+                type="button" 
+                onClick={fetchSearch} 
+                disabled={isLoading}> 
+                <FaSearch size={20}/>
+            </button>
+     */
 
     return (
         <div className='content'>
@@ -106,10 +121,11 @@ function Search() {
                 placeholder="Search"
                 id="searchBar"
                 onChange={onChangeName}
+                onKeyDown={handleKeyDown}
             />
-            <button type="button" onClick={fetchSearch} disabled={isLoading}> Search </button>
-            <button type="button" onClick={toggleAdvancedSearchVisibility}>
-                <FaPlusSquare size={10} />
+            <button type="button" onClick={toggleAdvancedSearchVisibility}
+                    className="adv-button">
+                <FaPlusSquare size={15} />
             </button>
             <div className="advanced-search"
                 id="AdvancedSearch">

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaStar } from "react-icons/fa"
 import PageReview from "./PageReview";
 import StarRating from "./Stars";
 

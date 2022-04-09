@@ -1,7 +1,5 @@
 import * as React from 'react';
 import Game from './Game'
-let stars = parseInt(5);
-const starArray = Array(stars).fill(0);
 let client = '&client_id=kPogXgKnim'
 let json;
 
