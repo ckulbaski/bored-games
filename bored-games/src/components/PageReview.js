@@ -10,14 +10,6 @@ function PageReview(props) {
 
     function getReview() {
 
-        // this list is WAY too long
-        /*let response = await fetch(catsearch + client);
-        if (response.status === 200) {
-            cat = await response.json();
-        }
-        console.log(cat.categories)*/
-
-        //so I condensed it to this for now
         if (Object.entries(props).length === 0) {
             var num = randomInt();
             name = json.reviews[num].Username
@@ -72,7 +64,7 @@ const styles = {
 
         height: "30vh",
         width: "100%",
-        border: "solid 1px",
+        border: "solid .5px",
 
 
     }

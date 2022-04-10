@@ -3,209 +3,224 @@
   height: 100vh;
 }
 
-h1{
-    margin-top: 0;
+h1 {
+  margin-top: 0;
 }
 
-h3{
-    margin-top: 0;
+h3 {
+  margin-top: 0;
 }
 
-.content{
-    background-color: gainsboro;
-    height: 90vh;
-    margin:auto;
+.content {
+  background-color: gainsboro;
+  height: 90vh;
+  margin: auto;
 }
-.active-content{
+
+.active-content {
   background-color: gainsboro;
   height: 90vh;
   visibility: visible;
 }
-.nav-bar{
-    height: 10vh;
-    width: 100vw;
-    display: flex;
-    justify-content: space-between;
+
+.nav-bar {
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
 }
 
-.tabs{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 33%;
-    border: 3px solid;
-    border-color: black;
-    cursor: pointer;
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 33%;
+  border: 3px solid;
+  border-color: black;
+  cursor: pointer;
 
 }
 
-.tabs p{
-    font-size: 20px;    
+.tabs p {
+  font-size: 20px;
 }
 
-.game-list{
-    display:flex;
-    height: 93%;
-    width: 100%;
-    position: relative;
-    justify-content: center;
-    overflow: hidden;
+.game-list {
+  display: flex;
+  height: 93%;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.game{
-    background-color: white;
-    border: 1px solid;
-    text-align:left;
-    font-size: 1.5em;
-    height:60px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+.game {
+  background-color: white;
+  border: 1px solid;
+  text-align: left;
+  font-size: 1.5em;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
-.game p{
-    height: 50%;
-    margin: 0;
-    margin-right: 5px;
+
+.game p {
+  height: 50%;
+  margin: 0;
+  margin-right: 5px;
 }
-.game img{
-    margin-right: 5px;
-    float: left;
+
+.game img {
+  margin-right: 5px;
+  float: left;
 }
-.star-container{
-    height: 50%;
-    display: "flex";
+
+.star-container {
+  height: 50%;
+  display: "flex";
 }
 
 
-div ul{
-    list-style-type: none;
-    display: block;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    padding: 5px;
-    margin: 0 auto;
+div ul {
+  list-style-type: none;
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  padding: 5px;
+  margin: 0 auto;
 }
 
-.profile-background{
+.profile-background {
   background-color: gainsboro;
-  height:100%;
-  width:40%;
+  height: 100%;
+  width: 40%;
   margin: auto;
 }
 
-.profile-container{
-  display:flex;
+.profile-container {
+  display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color:paleturquoise;
+  background-color: paleturquoise;
   width: fit-content;
   margin: auto;
 }
 
-.profile-information{
+.profile-information {
   text-align: left;
-  background-color:azure;
+  background-color: azure;
   padding-left: 3%;
 }
 
-.profile-image{
+.profile-image {
   background-color: white;
   border-radius: 50%;
-  
+
 }
 
-.profile-description{
+.profile-description {
   background-color: white;
-  margin-right:3%;
-  margin-bottom:3%;
+  margin-right: 3%;
+  margin-bottom: 3%;
   max-height: 300px;
   max-width: 500px;
-  overflow-y:scroll;
+  overflow-y: scroll;
 }
 
-.profile-favourite-games{
-  display:flex;
-  flex-direction:row;
+.profile-favourite-games {
+  display: flex;
+  flex-direction: row;
   background-color: white;
   justify-content: center;
-  width:fit-content;
+  width: fit-content;
   height: auto;
-  margin-top:20px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.profile-favourite-games-image{
+.profile-favourite-games-image {
   padding: 10px;
   width: 150px;
   height: 150px;
 
 }
 
-.page-background{
+.page-background {
   background-color: gainsboro;
-  position:fixed;
-  padding:0;
-  margin:0;
+  position: fixed;
+  padding: 0;
+  margin: 0;
 
-  bottom:0;
-  left:0;
+  bottom: 0;
+  left: 0;
 
   width: 100%;
   height: 100%;
 }
 
-.page-container{
-  background-color:paleturquoise;
-  position:fixed;
-  padding:0;
-  margin:0;
+.page-container {
+  background-color: paleturquoise;
+  position: fixed;
+  padding: 0;
+  margin: 0;
 
-  top:5;
-  left:0;
+  top: 5;
+  left: 0;
 
   width: 100%;
   height: 100%;
   overflow: auto;
 }
 
-.page-information{
-  background-color:azure;
+.page-information {
+  background-color: azure;
   text-align: left;
   padding-left: 3%;
 }
 
-.page-description{
+.page-description {
   background-color: white;
-  margin-right:3%;
-  margin-bottom:3%;
+  margin-right: 3%;
+  margin-bottom: 3%;
   max-height: 300px;
   max-width: 100%;
-  overflow-y:scroll;
+  overflow-y: scroll;
 }
 
-.advanced-search{
-    width:50%;
-    border: 2px solid;
-    background-color: white;
-    display: none;
-    margin: 0 auto;
-    margin-right: 0;
+.advanced-search {
+  width: 50%;
+  border: 2px solid;
+  background-color: white;
+  display: none;
+  margin: 0 auto;
+  margin-right: 0;
 }
 
-.search-bar{
-    margin-top: 5px;
-    height: 5vh;
-    width: 80vw;
-}
-.search-button{
-    height: 5vh;
-    width: 5vw;
+.search-bar {
+  margin-top: 5px;
+  height: 5vh;
+  width: 80vw;
 }
 
-.adv-button{
-    height: 5vh;
-    width: 5vw;
+.search-button {
+  padding-top: 0px;
+  height: 6vh;
+  width: 5vw;
+
+}
+
+.adv-button {
+  padding-top: 0px;
+  height: 6vh;
+  width: 5vw;
+}
+
+.review-textarea {
+  width: 50%;
+  height: 20vh;
+  resize: none;
 }

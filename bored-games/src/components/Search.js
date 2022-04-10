@@ -19,10 +19,11 @@ function Search() {
     const [games, setGames] = React.useState("");
     const [category, setCategory] = React.useState("");
     const [ageRange, setAgeRange] = React.useState("");
-    const [complexity,setComplexity] = React.useState("");
-    const [numPlayers,setNumPlayers] = React.useState("");
+    const [complexity, setComplexity] = React.useState("");
+    const [numPlayers, setNumPlayers] = React.useState("");
     const [isLoading, setLoading] = React.useState(false);
     const [hasGames, setHasGames] = React.useState(false);
+    const [searchCount, setSearchCount] = React.useState(0);
 
     function onChangeName(event) {
         console.log(event.target.value);
@@ -45,26 +46,26 @@ function Search() {
         setComplexity(value);
     }
 
-    const handleKeyDown = (e) =>{
-        if(e.key === 'Enter'){
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
             fetchSearch();
         }
     }
 
-    const toggleAdvancedSearchVisibility = () =>{
-        var advancedSearchDiv=document.getElementById("AdvancedSearch");
+    const toggleAdvancedSearchVisibility = () => {
+        var advancedSearchDiv = document.getElementById("AdvancedSearch");
         advancedSearchDiv.style.display = advancedSearchDiv.style.display === "none" ? "block" : "none";
     }
 
     async function fetchSearch() {
         setLoading(true);
-        var advancedSearchDiv=document.getElementById("AdvancedSearch");
+        var advancedSearchDiv = document.getElementById("AdvancedSearch");
         advancedSearchDiv.style.display = "none";
-        let n = name === "" ? "" : "&name="+name;
-        let age = ageRange === "" ? "" : "&min_age="+ageRange;
-        let nu = numPlayers === "" ? "" : "&max_players="+numPlayers;
+        let n = name === "" ? "" : "&name=" + name;
+        let age = ageRange === "" ? "" : "&min_age=" + ageRange;
+        let nu = numPlayers === "" ? "" : "&max_players=" + numPlayers;
 
-        let query = 'https://api.boardgameatlas.com/api/search?fuzzy_match=true' +n + age + nu;
+        let query = 'https://api.boardgameatlas.com/api/search?fuzzy_match=true' + n + age + nu;
 
         query += "&fields=name,description,image_url,average_user_rating,categories,description_preview";
         query += "&limit=100";
@@ -72,7 +73,7 @@ function Search() {
         console.log(query);
 
         let response = await fetch(query)
-            .then(setHasGames(true));
+            .then(setHasGames(true), setSearchCount(searchCount + 1));
         console.log(response.status); // 200
         console.log(response.statusText); // OK
 
@@ -81,13 +82,13 @@ function Search() {
             // handle data
         }
         console.log(json.games);
-        var gameList=json.games;
-        if(category !== ""){
+        var gameList = json.games;
+        if (category !== "") {
             gameList = [];
             for (var key in json.games) {
                 for (var cat in json.games[key].categories) {
                     console.log(json.games[key].categories[cat].id);
-                    if(json.games[key].categories[cat].id === category){
+                    if (json.games[key].categories[cat].id === category) {
                         gameList.push(json.games[key]);
                         break;
                     }
@@ -125,13 +126,13 @@ function Search() {
             />
             <button
                 className="search-button"
-                type="button" 
-                onClick={fetchSearch} 
-                disabled={isLoading}> 
-                <FaSearch size={20}/>
+                type="button"
+                onClick={fetchSearch}
+                disabled={isLoading}>
+                <FaSearch size={15} />
             </button>
             <button type="button" onClick={toggleAdvancedSearchVisibility}
-                    className="adv-button">
+                className="adv-button">
                 <FaPlusSquare size={15} />
             </button>
             <div className="advanced-search"
@@ -139,9 +140,9 @@ function Search() {
                 <AdvancedSearch setCategory={onChangeCategory} setAgeRange={onChangeAgeRange} setNumPlayers={onChangeNumPlayers} setComplexity={onChangeComplexity} />
             </div>
 
-            {isLoading ?  
+            {isLoading ?
                 <LoadingSpinner />
-                : <GameList hasGames={hasGames} games={games}/>
+                : <GameList hasGames={hasGames} games={games} count={searchCount} />
             }
         </div>
     );
