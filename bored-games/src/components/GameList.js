@@ -5,8 +5,7 @@ import StarRating from './Stars';
 function GameList(props) {
     let hasGames = props.hasGames
     let games = props.games;
-    let count = props.count;
-    console.log(games.length)
+    console.log(games.length) // how many did we find?
     if (hasGames && games.length > 0)
         return (
 
