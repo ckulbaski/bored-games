@@ -1,20 +1,25 @@
 import * as React from 'react';
-import Game from './Game'
+import GameList from './GameList'
+import LoadingSpinner from './LoadingSpinner'
 let client = '&client_id=kPogXgKnim'
 let json;
 
 function Home() {
 
     const [games, setGames] = React.useState("");
+    const [hasGames, setHasGames] = React.useState(false);
+    const [isLoading, setLoading] = React.useState(false);
 
     async function fetchGames() {
+        setLoading(true);
         let query = 'https://api.boardgameatlas.com/api/search?lt_reddit_week_count=50';
         query += "&fields=name,description,image_url,average_user_rating,categories,description_preview";
         query += "&limit=10";
         query += client;
         console.log(query);
 
-        let response = await fetch(query);
+        let response = await fetch(query)
+            .then(setHasGames(true));
         console.log(response.status); // 200
         console.log(response.statusText); // OK
 
@@ -24,6 +29,7 @@ function Home() {
         }
         console.log(json.games);
         setGames(json.games);
+        setLoading(false);
     }
 
     React.useEffect(async () => {
@@ -34,17 +40,10 @@ function Home() {
 
         <div className='content'>
             <h1> Popular this week </h1>
-            {games !== "" ?
-                <div className="game-list">
-                    <ul>
-                        {games.map(game => (
-                            <li key={game.id}>
-                                <Game name={game.name} pic={game.image_url} stars={game.average_user_rating} description={game.description_preview} />
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                : null}
+            {isLoading ?
+                <LoadingSpinner />
+                : <GameList hasGames={hasGames} games={games} />
+            }
         </div>
     );
 
