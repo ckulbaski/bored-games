@@ -62,6 +62,7 @@ h3{
     display: flex;
     align-items: center;
     cursor: pointer;
+    overflow: hidden;
 }
 .game p{
     height: 50%;
@@ -74,9 +75,15 @@ h3{
 }
 .star-container{
     height: 50%;
-    display: "flex";
+    display: flex;
+    justify-content: center;
+    float: right;
+    margin: auto;
+    margin-right: 0;
 }
-
+.star-container p{
+    overflow-x: hidden;
+}
 
 div ul{
     list-style-type: none;

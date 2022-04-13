@@ -33,7 +33,7 @@ function Home() {
     return (
 
         <div className='content'>
-            <h3> Popular this week </h3>
+            <h1> Popular this week </h1>
             {games !== "" ?
                 <div className="game-list">
                     <ul>
