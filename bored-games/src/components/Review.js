@@ -21,9 +21,9 @@ function Review() {
 
     // function to create review
     const createReview = () => {
-        console.log(name + "\n")
+        /*console.log(name + "\n")
         console.log(starValue + "\n")
-        console.log(review + "\n")
+        console.log(review + "\n")*/
         setName("Nerd E. Gamer")
         setPost(true)
     }
@@ -46,9 +46,11 @@ function Review() {
                 </div>
                 <div>
                     <textarea
+                        className="review-textarea"
                         placeholder="Please enter your review"
                         required
                         onChange={(e) => updateReview(name, e.target.value)}
+
 
                     />
                 </div>
